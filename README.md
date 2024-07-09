@@ -25,7 +25,7 @@ Navigate to `http://localhost:4200/` and it will work in local
 # Build
 
 for github pages run this bellow command
-ng b --base-href /book-a-meeting-room/
+ng b --base-href /task-management/
 
 
 
