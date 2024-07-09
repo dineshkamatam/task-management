@@ -20,14 +20,15 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
 import { TaskService } from './services/task.service';
-import { ReminderService } from './services/reminder.service';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { ReminderPipe } from './pipes/reminder.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    TaskFormComponent
+    TaskFormComponent,
+    ReminderPipe
   ],
   imports: [
     BrowserModule,
@@ -51,7 +52,6 @@ import { provideNativeDateAdapter } from '@angular/material/core';
     provideAnimationsAsync(),
     provideNativeDateAdapter(),
     TaskService,
-    ReminderService
   ],
   bootstrap: [AppComponent]
 })

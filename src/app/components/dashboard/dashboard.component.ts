@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
   tasks: Task[] = [];
   searchQuery: string = '';
   priorityFilter: 'low' | 'medium' | 'high' | '' = '';
+  statusFilter: 'pending' | 'inProgress' | 'completed' | '' = '';
   displayedColumns: string[] = ['srno', 'title', 'description', 'dueDate','status','priority','star'];
   constructor(private taskService: TaskService,private router: Router) {}
 
@@ -41,8 +42,12 @@ export class DashboardComponent implements OnInit {
     if (this.priorityFilter) {
       this.taskService.filterByPriority(this.priorityFilter);
     } else {
-      this.taskService.getTasks().subscribe(tasks => this.tasks = tasks);
+      this.getTasks()
     }
+  }
+
+  filterByStatus(){
+      this.taskService.filterByStastus(this.statusFilter);
   }
 
 
