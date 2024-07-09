@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../services/task.service';
 import { Task } from '../../models/task.model';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ViewTaskComponent } from '../view-task/view-task.component';
 
 
 @Component({
@@ -15,7 +17,7 @@ export class DashboardComponent implements OnInit {
   priorityFilter: 'low' | 'medium' | 'high' | '' = '';
   statusFilter: 'pending' | 'inProgress' | 'completed' | '' = '';
   displayedColumns: string[] = ['srno', 'title', 'description', 'dueDate','status','priority','star'];
-  constructor(private taskService: TaskService,private router: Router) {}
+  constructor(private taskService: TaskService,private router: Router, public dialog: MatDialog) {}
 
   ngOnInit() {
   this.getTasks()
@@ -50,5 +52,10 @@ export class DashboardComponent implements OnInit {
       this.taskService.filterByStastus(this.statusFilter);
   }
 
+  viewTask(val:any): void {
+    const dialogRef = this.dialog.open(ViewTaskComponent ,{
+      data: val,
+    });
+  }
 
 }

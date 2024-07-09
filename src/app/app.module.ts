@@ -13,6 +13,7 @@ import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
+import {MatChipsModule} from '@angular/material/chips';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,13 +23,15 @@ import { TaskFormComponent } from './components/task-form/task-form.component';
 import { TaskService } from './services/task.service';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { ReminderPipe } from './pipes/reminder.pipe';
+import { ViewTaskComponent } from './components/view-task/view-task.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     TaskFormComponent,
-    ReminderPipe
+    ReminderPipe,
+    ViewTaskComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { ReminderPipe } from './pipes/reminder.pipe';
     MatTableModule,
     MatSelectModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    MatChipsModule
   ],
   providers: [
     provideAnimationsAsync(),

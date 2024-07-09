@@ -1,0 +1,60 @@
+<div class="container m-3 ">
+  <div class="d-flex justify-content-between">
+    <h2 class="card-title m-0">
+      {{ data.title }}
+    </h2>
+    <button mat-icon-button (click)="cancel()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="d-flex justify-content-between">
+    <h4 class="card-subtitle text-muted m-0">
+      by {{ data.dueDate | date }} (<span class="text-info">{{
+        data.dueDate | reminder
+      }}</span
+      >)
+      <div
+        [style.background-color]="
+          data.priority === 'low'
+            ? 'green'
+            : data.priority === 'medium'
+            ? 'orange'
+            : 'red'
+        "
+        class="font-weight-bold priority"
+      >
+        {{
+          data.priority === "low"
+            ? "L"
+            : data.priority === "medium"
+            ? "M"
+            : data.priority === "high"
+            ? "H"
+            : ""
+        }}</div
+      >
+    </h4>
+    <h3
+      [style.color]="
+        data.status === 'pending'
+          ? 'red'
+          : data.status === 'inProgress'
+          ? 'orange'
+          : 'green'
+      "
+      class="font-weight-bold"
+    >
+      {{
+        data.status === "pending"
+          ? "Pending"
+          : data.status === "inProgress"
+          ? "In Progress"
+          : data.status === "completed"
+          ? "Completed"
+          : ""
+      }}
+    </h3>
+  </div>
+
+  <p class="card-text">{{ data.description }}</p>
+</div>
